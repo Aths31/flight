@@ -1,0 +1,37 @@
+.flight-search-bg{
+    background-image: url("../../../assets/images/Flight_widgit_Bg.jpg");
+    height: 500px;
+    margin: 0;
+    padding: 0;
+}
+
+.flight-search-bg h1{
+    font-size: xx-large;
+}
+
+.left-components {
+    margin: 0;
+    padding: 0;
+}
+
+.list-buttons{
+    border: 0; 
+    border-radius: 50%;
+    background-color:white; 
+    color: rgb(82, 128, 177);
+}
+
+.list-buttons:hover{
+    background: rgb(82, 128, 177);
+    color:white;
+    /* transition: ease-in-out; */
+}
+
+.list-buttons{
+    color: rgb(82, 128, 177);
+    background-color: white;
+}
+
+th, td{
+    color: rgb(82, 128, 177);
+}

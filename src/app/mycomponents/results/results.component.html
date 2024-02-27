@@ -1,0 +1,48 @@
+<div class="flight-search-bg px-5 py-5">
+    <h1>Flight List</h1>
+    <div class="card text-center">
+      <div class="card-body d-flex justify-content-md-between" style="background: white;">
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link" href="/flight" routerLinkActive="active">Flights</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active"  href="/flight-list">Flight List</a>
+          </li>
+        </ul>
+        <div>
+          <button class="list-buttons" (click)="refreshList()">
+            <i class="bi bi-arrow-clockwise"></i>
+          </button>
+        </div>
+      </div>
+        <div class="card-body" style="background: white;">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">To City</th>
+                    <th scope="col">From City</th>
+                    <th scope="col">Depart On</th>
+                    <th scope="col">Return On</th>
+                    <th scope="col">Travelers Class</th>
+                    <th scope="col">Travelers</th>
+                    <th scope="col" colspan="2"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let customer of customers; let i = index;">
+                      <td>{{ i+1 }}</td>
+                      <td>{{ customer.fromCity }}</td>
+                      <td>{{ customer.toCity }}</td>
+                      <td>{{ customer.departOn }}</td>
+                      <td>{{ customer.returnOn }}</td>
+                      <td>{{ customer.travelersClass }}</td>
+                      <td>{{ customer.travelers }}</td>
+                      <td><button class="list-buttons" (click)="update(customer.id)"><i class="bi bi-file-earmark-plus"></i></button></td>
+                      <td><button class="list-buttons" (click)="delete(customer.id)"><i class="bi bi-trash3"></i></button></td>
+                    </tr>
+                </tbody>
+              </table>
+      </div>
+</div>

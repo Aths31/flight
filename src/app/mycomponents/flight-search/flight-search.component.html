@@ -1,0 +1,111 @@
+<div class="flight-search-bg px-5 py-5">
+    <h1>Book Flight Tickets</h1>
+    <div class="card text-center">
+        <div class="card-body d-flex" style="background: white;">
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" routerLink="/flight" routerLinkActive="active">Flights</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  routerLink="/flight-list" routerLinkActive="active">Flight List</a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+          <form class="row g-3" (ngSubmit)="onSearch()">
+            <div class="col-auto">
+              <div class="d-flex">
+         
+                  <label for="From-City" class="visually-hidden">From: City or Airport Code</label>
+                  <input type="text" class="form-control" id="From-City" name ="fromCity" [(ngModel)]="customer.fromCity" placeholder="From: City or Airport Code">
+            
+              
+                  <span>
+                    <button class="switchButton mx-2 my-2" (click)="citySwitcher($event)"><i class="bi bi-arrow-left-right"></i></button>
+                  </span>
+               
+                  <label for="To-City" class="visually-hidden">To: City or Airport Code</label>
+                  <input type="text" class="form-control" id="To-City" name ="toCity" [(ngModel)]="customer.toCity"  placeholder="To: City or Airport Code">
+              
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <!-- <label for="From-City" class="">Depart On</label> -->
+              <input type="text" class="form-control" id="Depart-City" placeholder="Depart On" onfocus="(this.type='date')" onblur="(this.type='text')" name="departOn" [(ngModel)]="customer.departOn">   
+            </div>
+            <div class="col-sm-2">
+              <!-- <label for="To-City" class="">Return On</label> -->
+              <input type="text" class="form-control" id="Return-City" placeholder="Return On" onfocus="(this.type='date')" onblur="(this.type='text')" name="returnOn" [(ngModel)]="customer.returnOn">   
+            </div>
+            <div class="col-auto dropdown">
+              <button class="btn btn-white btn-outline-secondary dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-person-fill"></i> {{totalTravellers}} {{totalTravellers>1?"travelers":"Adult"}}, {{travellersClass}}
+              </button>
+              <ul class="dropdown-menu">
+                <li><label class="dropdown-item border-bottom d-flex justify-content-md-between">
+                  <div>
+                    Adult
+                  </div>
+                  <div>
+                    <button (click)="increaseAdults($event)" class="switchButton"><i class="bi bi-plus-square"></i></button>
+                    <span class="px-2">{{ numberOfAdults }}</span>
+                    <button (click)="decreaseAdults($event)" class="switchButton"><i class="bi bi-dash-square"></i></button>
+                  </div>
+                </label></li>
+                <li><label class="dropdown-item border-bottom d-flex justify-content-md-between">
+                  <div>
+                    Child
+                  </div>
+                  <div>
+                    <button (click)="increaseChildren($event)" class="switchButton"><i class="bi bi-plus-square"></i></button>
+                    <span class="px-2">{{ numberOfChildren }}</span>
+                    <button (click)="decreaseChildren($event)" class="switchButton"><i class="bi bi-dash-square"></i></button>
+                  </div>
+                </label></li>
+                <li><label class="dropdown-item border-bottom d-flex justify-content-md-between">
+                  <div>
+                    Infants
+                  </div>
+                  <div>
+                    <button (click)="increaseInfants($event)" class="switchButton"><i class="bi bi-plus-square"></i></button>
+                    <span class="px-2">{{ numberOfInfants }}</span>
+                    <button (click)="decreaseInfants($event)" class="switchButton"><i class="bi bi-dash-square"></i></button>
+                  </div>
+                </label></li>
+                <li class="px-2 py-1">Traveller(s) class</li>
+                <div class="form-check mx-2">
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value ="Economy" (change)="classSelection($event)" checked>
+                  <label class="form-check-label" for="exampleRadios4">
+                    Economy
+                  </label>
+                </div>
+                <div class="form-check mx-2">
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="Premium Economy" (change)="classSelection($event)">
+                  <label class="form-check-label" for="exampleRadios5">
+                    Premium Economy
+                  </label>
+                </div>
+                <div class="d-flex">
+                  <div class="form-check mx-2">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="Business" (change)="classSelection($event)">
+                    <label class="form-check-label" for="exampleRadios6">
+                      Business
+                    </label>
+                  </div>
+                  <div class="form-check mx-2">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios7" value="First" (change)="classSelection($event)">
+                    <label class="form-check-label" for="exampleRadios7">
+                      First
+                    </label>
+                  </div>
+
+                </div>
+              </ul>
+            </div>
+            <div class="col-auto">
+              <button type="submit" class="btn btn-primary mb-3 px-4 py-2">Save Search</button>
+            </div>
+          </form>
+        </div>
+      </div>
+</div>
